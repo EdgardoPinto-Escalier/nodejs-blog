@@ -1,0 +1,24 @@
+{
+  "name": "nodejs-blog",
+  "version": "1.0.0",
+  "description": "Simple NodeJS Blog",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EdgardoPinto-Escalier/nodejs-blog.git"
+  },
+  "author": "Edgardo Pinto-Escalier",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EdgardoPinto-Escalier/nodejs-blog/issues"
+  },
+  "homepage": "https://github.com/EdgardoPinto-Escalier/nodejs-blog#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "lodash": "^4.17.20"
+  }
+}
