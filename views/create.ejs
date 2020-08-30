@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NodeJS Blog | <%= title %> </title>
+</head>
+
+<body>
+  <nav>
+    <div class="site-title">
+      <a href="/">
+        <h1>NodeJS Blog</h1>
+      </a>
+      <p>Simple Blog created using NodeJS, ExpressJS and MongoDB</p>
+    </div>
+    <ul>
+      <li><a href="/">BLOGS</a></li>
+      <li><a href="/about">ABOUT</a></li>
+      <li><a href="/blogs/create">CREATE A NEW POST</a></li>
+    </ul>
+  </nav>
+
+  <div class="create-blog content">
+    <form>
+      <label for="title">Post Title:</label>
+      <input type="text" id="title" required>
+      <label for="snippet">Post Snippet:</label>
+      <input type="text" id="snippet" required>
+      <label for="body">Post Body:</label>
+      <textarea id="body" required></textarea>
+      <button>Submit</button>
+    </form>
+  </div>
+
+</body>
+
+</html>
