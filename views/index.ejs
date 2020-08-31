@@ -1,29 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NodeJS Blog | <%= title %></title>
-</head>
+<%- include('./partials/head.ejs')  %> 
 
 <body>
-  <nav>
-    <div class="site-title">
-      <a href="/"><h1>NodeJS Blog</h1></a>
-      <p>Simple Blog created using NodeJS, ExpressJS and MongoDB</p>
-    </div>
-    <ul>
-      <li><a href="/">BLOGS</a></li>
-      <li><a href="/about">ABOUT</a></li>
-      <li><a href="/blogs/create">CREATE A NEW POST</a></li>
-    </ul>
-  </nav>
+  <%- include('./partials/nav.ejs') %> 
 
   <div class="blogs content">
     <h2>ALL BLOG POSTS</h2>
+
+    <% if(blogPosts.length > 0) { %>
+      <% blogPosts.forEach(blogPost => { %>
+        <h3 class="title"><%= blogPost.title %> </h3>
+        <p class="snippet"><%= blogPost.snippet %> </p>
+
+      <% }) %> 
+    <% } else { %>
+      <p>There are not blog posts to display...</p>
+      <% } %> 
+    
   </div>
 
+  <%- include('./partials/footer.ejs') %> 
 </body>
 
 </html>

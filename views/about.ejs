@@ -1,26 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NodeJS Blog | <%= title %></title>
-</head>
+<%- include('./partials/head.ejs')  %>
 
 <body>
-  <nav>
-    <div class="site-title">
-      <a href="/">
-        <h1>NodeJS Blog</h1>
-      </a>
-      <p>Simple Blog created using NodeJS, ExpressJS and MongoDB</p>
-    </div>
-    <ul>
-      <li><a href="/">BLOGS</a></li>
-      <li><a href="/about">ABOUT</a></li>
-      <li><a href="/blogs/create">CREATE A NEW POST</a></li>
-    </ul>
-  </nav>
+  <%- include('./partials/nav.ejs') %>
 
   <div class="blogs content">
     <h2>ABOUT US</h2>
@@ -29,6 +13,7 @@
     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil animi exercitationem eum eligendi corporis perspiciatis quasi. Non ducimus fugiat consequatur magnam assumenda, inventore eos enim ratione. Voluptate fugit officia sint?</p>
   </div>
 
+  <%- include('./partials/footer.ejs') %>
 </body>
 
 </html>
