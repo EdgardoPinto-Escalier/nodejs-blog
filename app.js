@@ -1,18 +1,36 @@
 const express = require('express');
 const morgan = require('morgan');
 
+const Blog = require('./models/blog');
+
 // Express app
 const app = express();
+
 
 // Register view engine
 app.set('view engine', 'ejs');
 
-// Listen for requests
-app.listen(3000);
 
 // Middleware and static files
 app.use(express.static('public'));
 app.use(morgan('dev'));
+
+// mongoose and mongo Routes
+app.get('/add-blog', (req, res) => {
+  const blog = new Blog({
+    title: 'New Blog Post',
+    snippet: 'This new post is about neural link',
+    body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis ratione quibusdam autem. Reprehenderit vel doloremque eveniet. Recusandae cumque illo adipisci!'
+  });
+
+  blog.save()
+    .then((result) => {
+      res.send(result)
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+})
 
 // Routes
 app.get('/', (req, res) => {
@@ -45,4 +63,6 @@ app.get('/blogs/create', (req, res) => {
 app.use((req, res) => {
   res.status(404).render('404', { title: '404' });
 });
+
+module.exports = app;
 
