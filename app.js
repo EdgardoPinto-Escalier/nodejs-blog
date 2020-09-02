@@ -1,21 +1,18 @@
 const express = require('express');
 const morgan = require('morgan');
-
 const Blog = require('./models/blog');
 
 // Express app
 const app = express();
 
-
 // Register view engine
 app.set('view engine', 'ejs');
-
 
 // Middleware and static files
 app.use(express.static('public'));
 app.use(morgan('dev'));
 
-// mongoose and mongo Routes
+// Mongoose and MongoDB Routes
 app.get('/add-blog', (req, res) => {
   const blog = new Blog({
     title: 'New Blog Post',
