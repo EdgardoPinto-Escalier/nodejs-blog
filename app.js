@@ -12,45 +12,25 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(morgan('dev'));
 
-// Mongoose and MongoDB Routes
-app.get('/add-blog', (req, res) => {
-  const blog = new Blog({
-    title: 'New Blog Post',
-    snippet: 'This new post is about neural link',
-    body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis ratione quibusdam autem. Reprehenderit vel doloremque eveniet. Recusandae cumque illo adipisci!'
-  });
-
-  blog.save()
-    .then((result) => {
-      res.send(result)
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-})
-
 // Routes
 app.get('/', (req, res) => {
-  const blogPosts = [
-    {
-      title: "Lorem ipsum dolor sit amet.",
-      snippet: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, necessitatibus.",
-    },
-    {
-      title: "Lorem ipsum dolor sit amet.",
-      snippet: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, necessitatibus.",
-    },
-    {
-      title: "Lorem ipsum dolor sit amet.",
-      snippet: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, necessitatibus.",
-    },
-  ];
-  res.render('index', { title: 'Home', blogPosts });
+  res.redirect('/blogs');
 });
 
 app.get("/about", (req, res) => {
   res.render('about', { title: 'About' });
 });
+
+// Blog Routes
+app.get('/blogs', (req, res) => {
+  Blog.find().sort()
+    .then((result) => {
+      res.render('index', { title: 'All Blog Posts', blogs: result })
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+})
 
 app.get('/blogs/create', (req, res) => {
   res.render('create', { title: 'Create' });

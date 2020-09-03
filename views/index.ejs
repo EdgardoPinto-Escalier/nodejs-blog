@@ -9,10 +9,10 @@
   <div class="blogs content">
     <h2>ALL BLOG POSTS</h2>
 
-    <% if(blogPosts.length > 0) { %>
-      <% blogPosts.forEach(blogPost => { %>
-        <h3 class="title"><%= blogPost.title %> </h3>
-        <p class="snippet"><%= blogPost.snippet %> </p>
+    <% if(blogs.length > 0) { %>
+      <% blogs.forEach(blog => { %>
+        <h3 class="title"><%= blog.title %> </h3>
+        <p class="snippet"><%= blog.snippet %> </p>
 
       <% }) %> 
     <% } else { %>
