@@ -70,7 +70,37 @@
     }
   
     /* index styles */
+    .blogs a {
+      display: block;
+      margin: 40px 0;
+      padding-left: 30px;
+      border-left: 5px solid purple;
+    }
+
+    .blogs a:hover h3 {
+      color: purple;
+    }
+
     /* details styles */
+    .details {
+      position: relative;
+    }
+
+    .delete {
+      position: absolute;
+      background-color: purple;
+      color: white;
+      top: 0;
+      right: 0;
+      border-radius: 10%;
+      padding: 5px 10px;;
+    }
+
+    .delete:hover {
+      cursor: pointer;
+      box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
+    }
+
     /* create styles */
     .create-blog form {
       max-width: 400px;
